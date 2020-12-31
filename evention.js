@@ -100,7 +100,7 @@ export class Evention {
   once (name, fn, scope) {
     const _self = this
     function nfn () {
-      _self.off(name, fn)
+      _self.off(name, nfn)
       fn.apply(scope || _self, arguments)
     }
     this.on(name, nfn, scope)
